@@ -1,1 +1,2 @@
-angular.module('tflApp', []);
+angular
+  .module('twitterForLondon', []);

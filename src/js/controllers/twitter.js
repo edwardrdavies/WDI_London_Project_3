@@ -1,4 +1,4 @@
-angular.module('tflApp')
+angular.module('twitterForLondon')
   .controller('TwitterController', TwitterController);
 
 
