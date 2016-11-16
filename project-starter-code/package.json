@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "app.js",
   "license": "ISC",
-  "scripts": {"start": "node app.js",
-                "postinstall": "bower install"
-                },
-  "engines": {"node": "6.8.0"}, 
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower install"
+  },
+  "engines": {
+    "node": "6.8.0"
+  },
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
