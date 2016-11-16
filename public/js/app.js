@@ -1,2 +1,2 @@
-"use strict";console.log("JS loaded");
+"use strict";function TwitterController(t){function l(){t.get("/tweets").then(function(t,l){return l?void console.log("Something went wrong, run away from ",l):(o.all=t.data.statuses,void console.log(o.all))})}var o=this;o.all=[],l()}angular.module("tflApp",[]),angular.module("tflApp").controller("TwitterController",TwitterController),TwitterController.$inject=["$http"];
 //# sourceMappingURL=app.js.map

@@ -1,1 +1,1 @@
-console.log('JS loaded');
+angular.module('tflApp', []);
