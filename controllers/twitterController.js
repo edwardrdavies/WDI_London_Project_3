@@ -10,12 +10,12 @@ const twitter = new Twitter({
 
 
 function indexTweets (req, res) {
-  let error = function (err, response, body) {
+  const error = function (err) {
     console.log(err);
   };
 
-  let success = function (data) {
-    let tweets = JSON.parse(data);
+  const success = function (data) {
+    const tweets = JSON.parse(data);
     tweets.statuses.map((tweet) => {
       tweet.text = twitterText.autoLink(twitterText.htmlEscape(tweet.text));
       return tweet;
