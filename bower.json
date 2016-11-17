@@ -20,6 +20,6 @@
     "satellizer": "^0.15.5",
     "angular-resource": "^1.5.8",
     "angular-ui-router": "^0.3.2",
-    "satellizer": "^0.15.5"
+    "angular-sanitize": "^1.5.8"
   }
 }

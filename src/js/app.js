@@ -1,5 +1,5 @@
 angular
-  .module('twitterForLondon', ['ngResource', 'ui.router', 'satellizer'])
+  .module('twitterForLondon', ['ngResource', 'ui.router', 'satellizer', 'ngSanitize'])
   .config(Router)
   .config(Auth);
 
@@ -17,6 +17,11 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/lines',
     templateUrl: '/templates/linesIndex.html',
     controller: 'LinesIndexController as linesIndex'
+  })
+  .state('linesShow', {
+    url: '/lines/:tflId',
+    templateUrl: '/templates/linesShow.html',
+    controller: 'LinesShowController as linesShow'
   })
   .state('login', {
     url: '/login',

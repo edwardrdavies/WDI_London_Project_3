@@ -10,6 +10,7 @@ const twitter = new Twitter({
 
 
 function indexTweets (req, res) {
+
   const error = function (err) {
     console.log(err);
   };
@@ -22,7 +23,7 @@ function indexTweets (req, res) {
     });
     res.json(tweets);
   };
-  twitter.getSearch({'q': 'district line' , 'count': 10}, error, success);
+  twitter.getSearch({ q: `tfl ${req.query.q}` , count: 50 }, error, success);
 }
 
 module.exports = {
