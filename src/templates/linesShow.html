@@ -1,0 +1,30 @@
+<section>
+  <div>Profile Info Here</div>
+  <h2>{{ linesShow.line.name }} Line</h2>
+  <ul>
+    <li> {{ linesShow.line.status }} {{ linesShow.line.severity }}</li>
+  </ul>
+  <div>Twitter Logo Here</div>
+  <ul>
+    <!-- <li>{{ linesShow.all}}</li> -->
+    <li class="stream" ng-repeat="tweet in linesShow.tweets">
+      <div class="tweet">
+        <div class="image">
+          <img ng-src="{{tweet.user.profile_image_url}}"/>
+        </div>
+        <div class="content">
+          <strong>{{tweet.user.name}}</strong>
+          <span>&rlm;</span>
+          <span>@</span>{{tweet.user.screen_name}}</br>
+
+            <small>
+              {{tweet.created_at}}
+            </small>
+            <p ng-bind-html="tweet.text"></p>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+</section>
