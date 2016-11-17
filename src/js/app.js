@@ -18,6 +18,11 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: '/templates/linesIndex.html',
     controller: 'LinesIndexController as linesIndex'
   })
+  .state('register', {
+    url: '/register',
+    templateUrl: '/templates/register.html',
+    controller: 'RegisterController as register'
+  })
   .state('login', {
     url: '/login',
     templateUrl: '/templates/login.html',
