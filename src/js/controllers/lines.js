@@ -1,15 +1,18 @@
 angular
   .module('twitterForLondon')
-  .controller('LinesController', LinesController);
+  .controller('LinesIndexController', LinesIndexController);
 
-LinesController.$inject = ['$http'];
-function LinesController($http) {
+LinesIndexController.$inject = ['$http'];
+function LinesIndexController($http) {
+  const lines = this;
+  lines.all = [];
 
   function getTflStatus() {
     $http
       .get('/status')
       .then((res) => {
         console.log(res);
+        lines.all = res;
       })
       .catch((err) => {
         console.log(err);

@@ -3,14 +3,26 @@ angular
   .config(Router)
   .config(Auth);
 
+
+
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('login', {
-      url: '/login',
-      templateUrl: '/templates/login.html',
-      controller: 'LoginController as login'
-    });
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/templates/usersIndex.html',
+    controller: 'UsersIndexController as user'
+  })
+  .state('linesIndex', {
+    url: '/lines',
+    templateUrl: '/templates/linesIndex.html',
+    controller: 'LinesIndexController as linesIndex'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: '/templates/login.html',
+    controller: 'LoginController as login'
+  });
 
   $urlRouterProvider.otherwise('/');
 }

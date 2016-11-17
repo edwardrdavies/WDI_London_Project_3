@@ -1,0 +1,16 @@
+<section>
+  <div></div>
+  <ul>
+    <li><a ui-sref="linesIndex" ui-sref-active="active">All</a></li>
+    <li><a ui-sref="#" ui-sref-active="active">Frequent</a></li>
+  </ul>
+  <div>
+    <ul>
+      <li ng-repeat="line in linesIndex.all.data"><a ui-sref="#"><strong>{{ line.name }} Line:</strong> {{ line.status }} {{ line.severity }}</a></li>
+    </ul>
+  </div>
+  <ul>
+    <li><a ui-sref="#" ui-sref-active="active">Current</a></li>
+    <li><a ui-sref="#" ui-sref-active="active">Planned</a></li>
+  </ul>
+</section>

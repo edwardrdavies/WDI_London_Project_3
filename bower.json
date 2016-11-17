@@ -19,6 +19,7 @@
     "skeleton": "^2.0.4",
     "satellizer": "^0.15.5",
     "angular-resource": "^1.5.8",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "satellizer": "^0.15.5"
   }
 }
