@@ -3,8 +3,6 @@ angular
   .config(Router)
   .config(Auth);
 
-
-
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -22,6 +20,11 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/lines/:tflId',
     templateUrl: '/templates/linesShow.html',
     controller: 'LinesShowController as linesShow'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: '/templates/register.html',
+    controller: 'RegisterController as register'
   })
   .state('login', {
     url: '/login',

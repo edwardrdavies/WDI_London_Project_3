@@ -1,24 +1,24 @@
 <section>
-  <h1>Twitter For London</h1>
-  <h4>Login with:</h4>
-  <button ng-click="login.authenticate('facebook')">Login with Facebook</button>
-  <button>Login with Twitter</button>
-  <button>Login with Instagram</button>
-  <h4>OR</h4>
-  <form novalidate ng-submit="login.submit()">
-    <div class="row">
-      <label>Email</label>
-      <input class="u-full-width" type="email" placeholder="Email" ng-model="login.credentials.email">
-    </div>
-    <div class="row">
-      <label>Password</label>
-      <input class="u-full-width" type="password" placeholder="Password" ng-model="login.credentials.password">
-    </div>
+  <div class="hero">
+    <h4 class="loginWith">Login with:</h4>
+    <img class="fbImg" src="../images/fb.png" ng-click="login.authenticate('facebook')">
+    <img class="twitterImg" src="../images/twitter.png">
+    <img class="instagramImg" src="../images/instagram.png">
+    <h4 class="OR">OR</h4>
+    <form novalidate ng-submit="login.submit()">
+      <div class="row">
+        <label>Email</label>
+        <input class="u-full-width emailInput" type="email" placeholder="Email" ng-model="login.credentials.email">
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input class="u-full-width" type="password" placeholder="Password" ng-model="login.credentials.password">
+      </div>
 
-    <button>Login</button>
-  </form>
-  <h4>OR</h4>
-  <button>Register</button>
+      <button class="loginBtn">Login</button>
+    </form>
+    <h4>OR</h4>
+    <a class="registerBtn" ui-sref="register">Register</a>
 
-
+  </div>
 </section>

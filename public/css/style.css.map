@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"sources":[],"names":[],"mappings":"","file":"style.css","sourcesContent":[]}
+=======
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,MACE,OAAQ,MACR,iBAAkB,8BAClB,kBAAmB,UACnB,gBAAiB,MACjB,oBAAqB,OAAO,IAC5B,WAAY,OACZ,YAAa,MACb,MAAO,KAET,mBACE,MAAO,MACP,OAAQ,KACR,cAAe,KACf,UAAW,KAEb,WACE,UAAW,KACX,eAAgB,KAElB,IACE,YAAa,KACb,eAAgB,KAElB,MACE,UAAW,KACX,eAAgB,KAElB,UACE,WAAY,KACZ,MAAO,MACP,OAAQ,KACR,UAAW,KACX,cAAe,EAAE,EAAE,IAAI,IACvB,MAAO,KACP,iBAAkB,QAClB,YAEF,aACE,UAAW,KACX,gBAAiB,KAEnB,OAAqB,cAAb,YACN,OAAQ,MACR,aAAc,KACd,cAAe","file":"style.css","sourcesContent":[]}
+>>>>>>> development
