@@ -23,7 +23,7 @@ function indexTweets (req, res) {
     });
     res.json(tweets);
   };
-  twitter.getSearch({ q: `tfl ${req.query.q}` , count: 50 }, error, success);
+  twitter.getSearch({ q: `${req.query.q}` , count: 50 }, error, success);
 }
 
 module.exports = {
