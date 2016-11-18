@@ -1,20 +1,24 @@
 <section>
-  <div></div>
-  <ul>
-    <li><a ui-sref="linesIndex" ui-sref-active="active">All</a></li>
-    <li><a ui-sref="#" ui-sref-active="active">Frequent</a></li>
-  </ul>
+  <div class="container">
+    <div class="linesHeader">
+      <img class="settings" src="../images/settings.png" alt="" />
+    </div>
+    <div class="toggle">
+      <a class="buttonAll" ui-sref="linesIndex" ui-sref-active="active">All</a>
+      <a class="buttonFrequent" ui-sref="#" ui-sref-active="active">Frequent</a>
+    </div>
   <div>
     <ul>
       <li ng-repeat="line in linesIndex.all">
-        <a ui-sref="linesShow({ tflId: line.tflId })">
+        <a class="linesLink" ui-sref="linesShow({ tflId: line.tflId })">
           <strong>{{ line.name }} Line:</strong> {{ line.status }} {{ line.severity }}
         </a>
       </li>
     </ul>
   </div>
-  <ul>
+  <!-- <ul>
     <li><a ui-sref="#" ui-sref-active="active">Current</a></li>
     <li><a ui-sref="#" ui-sref-active="active">Planned</a></li>
-  </ul>
+  </ul> -->
+  </div>
 </section>
