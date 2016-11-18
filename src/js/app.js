@@ -48,7 +48,7 @@ function Auth($authProvider) {
   });
 
   $authProvider.twitter({
-    clientId: '799262881887961088-otHdpAYsUtsIQY1LaY96TY3jMywiFQI'
+    consumer_key: 'IzRAnWnZKtZexarPsreHSPz5l'
   });
   //
   // $authProvider.instagram({
