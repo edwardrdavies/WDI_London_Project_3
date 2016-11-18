@@ -132,8 +132,14 @@ ul li:after {
   display: block;
   padding-bottom: 15px;
   padding-top: 5px;
-  padding-left: 10px; 
+  float: right;
+  padding-right: 5px;
+}
 
+.headingTitle {
+  color: white;
+  display: inline;
+  padding-left: 10px;
 }
 
 .buttonAll,  {
