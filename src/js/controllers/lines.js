@@ -1,6 +1,7 @@
 angular
   .module('twitterForLondon')
   .controller('LinesIndexController', LinesIndexController)
+  .controller('LinesFavIndexController', LinesFavIndexController)
   .controller('LinesShowController', LinesShowController);
 
 
@@ -12,6 +13,18 @@ function LinesIndexController(TFL) {
   TFL.getStatuses()
     .then((lines) => {
       linesIndex.all = lines;
+    });
+}
+
+LinesFavIndexController.$inject = ['TFL', '$auth', 'User'];
+function LinesFavIndexController(TFL, $auth, User) {
+  const linesFavIndex = this;
+  linesFavIndex.lineFavs = [];
+  linesFavIndex.user = User.get({id: $auth.getPayload()._id});
+
+  TFL.getStatuses()
+    .then((lines) => {
+      linesFavIndex.lineFavs = lines;
     });
 }
 
@@ -44,3 +57,10 @@ function LinesShowController(TFL, $http, $state) {
 
   getTweets();
 }
+
+// LinesFavController.$inject = ['TFL', '$http', '$state'];
+// function LinesFavController(TFL, $http, $state) {
+//   const linesFav = this;
+//   linesFave.tweets = [];
+//
+// }

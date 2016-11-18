@@ -1,0 +1,22 @@
+<form novalidate ng-submit="edit.submit()">
+  <div class="row">
+    <label>Username</label>
+    <input class="u-full-width" type="text" placeholder="Username" ng-model="edit.user.username">
+  </div>
+  <div class="row">
+    <label>Email</label>
+    <input class="u-full-width" type="email" placeholder="Email" ng-model="edit.user.email">
+  </div>
+  <div class="row">
+    <label>Password</label>
+    <input class="u-full-width" type="password" placeholder="Password" ng-model="edit.user.password">
+  </div>
+  <div class="row">
+    <label>Password Confirmation</label>
+    <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="edit.user.passwordConfirmation">
+  </div>
+
+  <button>Update</button>
+
+  <button ui-sref="#">Frequent Lines</button>
+</form>

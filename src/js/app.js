@@ -16,6 +16,11 @@ function Router($stateProvider,   $urlRouterProvider) {
     templateUrl: '/templates/linesIndex.html',
     controller: 'LinesIndexController as linesIndex'
   })
+  .state('linesFavIndex', {
+    url: '/linesFav',
+    templateUrl: '/templates/linesFavIndex.html',
+    controller: 'LinesFavIndexController as linesFavIndex'
+  })
   .state('linesShow', {
     url: '/lines/:tflId',
     templateUrl: '/templates/linesShow.html',
@@ -30,6 +35,11 @@ function Router($stateProvider,   $urlRouterProvider) {
     url: '/login',
     templateUrl: '/templates/login.html',
     controller: 'LoginController as login'
+  })
+  .state('usersEdit', {
+    url: '/user/:id',
+    templateUrl: '/templates/usersEdit.html',
+    controller: 'UsersEditController as edit'
   });
 
   $urlRouterProvider.otherwise('/lines');
