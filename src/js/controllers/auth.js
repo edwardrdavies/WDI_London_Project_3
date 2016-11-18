@@ -1,7 +1,7 @@
 angular.module('twitterForLondon')
   .controller('RegisterController', RegisterController)
-  .controller('LoginController', LoginController);
-
+  .controller('LoginController', LoginController)
+  .controller('ConfirmController', ConfirmationController);
 
 RegisterController.$inject = ['$auth', '$state'];
 function RegisterController($auth, $state) {
@@ -17,6 +17,16 @@ function RegisterController($auth, $state) {
   }
 
   register.submit = submit;
+}
+
+ConfirmationController.$inject = ['$http', '$state'];
+function ConfirmationController($http, $state) {
+  $http({
+    method: 'POST',
+    url: `/confirm/${$state.params.confirmationCode}`
+  }).then(() => {
+    $state.go('login');
+  });
 }
 
 LoginController.$inject = ['$auth', '$state'];
