@@ -46,10 +46,10 @@ function Auth($authProvider) {
   $authProvider.facebook({
     clientId: '360279380977935'
   });
-  //
-  // $authProvider.github({
-  //   clientId: '1ce21c481fa0a5dc7af0'
-  // });
+
+  $authProvider.twitter({
+    clientId: '799262881887961088-otHdpAYsUtsIQY1LaY96TY3jMywiFQI'
+  });
   //
   // $authProvider.instagram({
   //   clientId: 'Instagram Client ID'
