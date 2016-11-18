@@ -1,12 +1,15 @@
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 const validator = require('validator');
+const uuid = require('uuid');
 
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   profileImage: { type: String},
+  locked: { type: Boolean, default: true },
+  confirmationCode: { type: String, default: uuid.v1 },
   facebookId: { type: String},
   passwordHash: { type: String }
 });

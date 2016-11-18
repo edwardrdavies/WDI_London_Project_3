@@ -30,6 +30,12 @@ function Router($stateProvider,   $urlRouterProvider) {
     url: '/login',
     templateUrl: '/templates/login.html',
     controller: 'LoginController as login'
+  })
+
+  .state('confirm', {
+    url: '/confirm/:confirmationCode',
+    templateUrl: '/templates/confirm.html',
+    controller: 'ConfirmController as confirm'
   });
 
   $urlRouterProvider.otherwise('/lines');
