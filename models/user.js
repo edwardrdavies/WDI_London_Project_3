@@ -1,10 +1,18 @@
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
+const validator = require('validator');
+const uuid = require('uuid');
+
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
-  passwordHash: { type: String }
+  profileImage: { type: String},
+  locked: { type: Boolean, default: true },
+  confirmationCode: { type: String, default: uuid.v1 },
+  facebookId: { type: String},
+  passwordHash: { type: String },
+  lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
 });
 
 function setPassword(value){
@@ -15,13 +23,42 @@ function setPasswordConfirmation(passwordConfirmation) {
   this._passwordConfirmation = passwordConfirmation;
 }
 
+function validateEmail(email) {
+  if (!validator.isEmail(email)) {
+    return this.invalidate('email', 'must be a valid email address');
+  }
+}
+
 function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
 
+userSchema
+  .virtual('password')
+  .set(setPassword);
+
+userSchema
+  .virtual('passwordConfirmation')
+  .set(setPasswordConfirmation);
+
+userSchema
+  .path('email')
+  .validate(validateEmail);
+
+userSchema.methods.validatePassword = validatePassword;
+
+userSchema.set('toJSON', {
+  transform: function(doc, json) {
+    delete json.passwordHash;
+    delete json.email;
+    delete json.__v;
+    return json;
+  }
+});
+
 function preValidate(next) {
   if (this.isNew) {
-    if (!this._password) {
+    if (!this._password && !this.facebookId && !this.twitterId && !this.instagramId) {
       this.invalidate('password', 'A password is required.');
     }
   }
@@ -38,6 +75,8 @@ function preValidate(next) {
   next();
 }
 
+userSchema.pre('validate', preValidate);
+
 function preSave(next) {
   if(this._password) {
     this.passwordHash = bcrypt.hashSync(this._password, bcrypt.genSaltSync(8));
@@ -46,27 +85,6 @@ function preSave(next) {
   next();
 }
 
-userSchema
-  .virtual('password')
-  .set(setPassword);
-
-userSchema
-  .virtual('passwordConfirmation')
-  .set(setPasswordConfirmation);
-
-userSchema.methods.validatePassword = validatePassword;
-
-userSchema.pre('validate', preValidate);
-
 userSchema.pre('save', preSave);
-
-userSchema.set('toJSON', {
-  transform: function(doc, json) {
-    delete json.passwordHash;
-    delete json.email;
-    delete json.__v;
-    return json;
-  }
-});
 
 module.exports = mongoose.model('User', userSchema);
