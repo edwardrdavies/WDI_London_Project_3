@@ -48,7 +48,7 @@ function Auth($authProvider) {
   });
 
   $authProvider.twitter({
-    consumer_key: 'IzRAnWnZKtZexarPsreHSPz5l'
+    consumer_key: 'rG5fJ6jrp0NECDqpceKMo5UuZ'
   });
   //
   // $authProvider.instagram({

@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   profileImage: { type: String},
   facebookId: { type: String},
   twitterId: { type: String},
+  instagramId: { type: String},
   passwordHash: { type: String }
 });
 
