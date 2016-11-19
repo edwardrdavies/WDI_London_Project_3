@@ -58,68 +58,59 @@ function facebook(req, res) {
 }
 
 function twitter(req, res) {
-  console.log('req.body:', req.body);
-  //REQUEST AN ACCESS TOKEN
-  request.post({
+  if (!req.body.oauth_token || !req.body.oauth_verifier) {
 
-    url: 'https://api.twitter.com/oauth/request_token',
-    oauth: {
-      consumer_key: process.env.TWITTER_API_KEY,
-      consumer_secret: process.env.TWITTER_APP_SECRET,
-      callback: req.body.redirectUri
-    },
-    json: true
-  }).then((response) => {
-    console.log('response: ', response.body);
-    //request user's profile with accessToken
-    // const oauthToken = response.split('&')[0];
-    const token = qs.parse(response);
-
-    console.log('################################################token: ', token);
-    res.status(200).send(token);
-    // return res.redirect(`https://api.twitter.com/oauth/authenticate?${oauthToken}`);
-    // return request.get({
-    //   url: `https://api.twitter.com/oauth/authenticate?${oauthToken}`,
-    //   json: true
-    // });
-
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  }).then((profile) => {
-    console.log('User authenticated: profile:', profile);
-    //find or create a user
-    User.findOne({ email: profile.email }, (err, user) => {
-      if(err) return res.status(500).json({error: err });
-
-      if(!user) {
-        user = new User({
-          twitterId: profile.id,
-          profileImage: 'johnevans',
-          email: profile.email,
-          username: `${profile.name} ${profile.id}`
-        });
-      } else {
-        user.twitterId = profile.id;
-        user.profileimage = 'johnevans';
+    // step 1, we send our APIs credentials to twitter, to get a request token
+    // twitter will then send a second request to this endpoint with a token and verifier
+    request.post({
+      url: 'https://api.twitter.com/oauth/request_token',
+      oauth: {
+        consumer_key: process.env.TWITTER_APP_KEY,
+        consumer_secret: process.env.TWITTER_APP_SECRET,
+        callback: req.body.redirectUri
       }
-      user.save((err, user) => {
-        if(err) return res.status(400).json({ error: err });
-
-        //geenrate JWT and send to the client
-        const payload = { _id: user._id, username: user.username };
-        const token = jwt.sign(payload, secret, { expiresIn: '24h'});
-
-        res.status(200).json({
-          user,
-          token
-        });
-      });
-
+    })
+    .then(function(body) {
+      var oauthToken = qs.parse(body);
+      return res.send(oauthToken);
+    })
+    .catch(function(err) {
+      return res.status(500).json({ error: err });
     });
-  });
-//
-  console.log('twitter function happens here...');
+  } else {
+    var params = ;
+
+    // step 2, when the second arrives with the token and verifier
+    // we can make a request for an access token
+    request.post({
+      url: 'https://api.twitter.com/oauth/access_token',
+      form: {
+        oauth_token: req.body.oauth_token,
+        oauth_verifier: req.body.oauth_verifier
+      }
+    })
+    .then(function(token) {
+      var token = qs.parse(token);
+
+      // step 3, we use the access token to get the user's profile data
+      return request.get({
+        url: 'https://api.twitter.com/1.1/users/show.json',
+        qs: token,
+        oauth: {
+          consumer_key: process.env.TWITTER_CONSUMER_KEY,
+          consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+          oauth_token: token.oauth_token
+        },
+        json: true
+      });
+    })
+    .then(function(profile) {
+      // step 4, we cannot get the user's email address from twitter, so we have to search for a user
+      // by their twitter id
+      console.log(profile);
+      res.status(200).send();
+    });
+  }
 }
 
 function instagram(req, res) {
