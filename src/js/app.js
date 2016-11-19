@@ -55,5 +55,4 @@ function Auth($authProvider) {
   //   clientId: 'Instagram Client ID'
   // });
 
-  //No additional setup required for Twitter
 }

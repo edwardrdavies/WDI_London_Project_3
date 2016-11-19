@@ -40,6 +40,7 @@ function facebook(req, res) {
       } else {
         user.facebookId = profile.id;
         user.profileimage = profile.picture.data.url;
+        console.log('getting facebook profile for twitter ', profile.id, profile.email);
       }
       user.save((err, user) => {
         if(err) return res.status(400).json({ error: err });
@@ -61,7 +62,7 @@ function facebook(req, res) {
 
 function twitter(req, res) {
   if (!req.body.oauth_token || !req.body.oauth_verifier) {
-    console.log('step1', req.body);
+    //console.log('step1', req.body);
     // step 1, we send our APIs credentials to twitter, to get a request token
     // twitter will then send a second request to this endpoint with a token and verifier
     request.post({
@@ -80,7 +81,7 @@ function twitter(req, res) {
       return res.status(500).json({ error: err });
     });
   } else {
-    console.log('step2', req.body);
+    //console.log('step2', req.body);
     // step 2, when the second arrives with the token and verifier
     // we can make a request for an access token
     request.post({
@@ -106,7 +107,7 @@ function twitter(req, res) {
       };
 
       const signature = oauthSignature.generate(method, url, params, process.env.TWITTER_APP_KEY, token.oauth_token_secret);
-
+      //console.log('step3', req.body);
       // step 3, we use the access token to get the user's profile data
       return request({
         method,
@@ -121,26 +122,32 @@ function twitter(req, res) {
           oauth_signature: signature
         },
         json: true
+
       });
+
     })
     .then(function(profile) {
       // step 4, we cannot get the user's email address from twitter, so we have to search for a user
       // by their twitter id
 
         //find or create a user
-      User.findOne({ email: profile.email }, (err, user) => {
+      //console.log('step4', req.body);
+      User.findOne({ twitterId: profile.id }, (err, user) => {
         if(err) return res.status(500).json({error: err });
 
         if(!user) {
+          console.log('getting new twitter profile id and email for twitter ', profile.id, profile.email),
+
           user = new User({
+
             twitterId: profile.id,
-              //profileImage: profile.picture.data.url,
-            email: profile.email,
-            username: `${profile.name} ${profile.id}`
+            profileImage: profile.profile_image_url,
+            username: profile.screen_name
+
           });
         } else {
+
           user.twitterId = profile.id;
-          console.log('getting twitter profile for twitter ', profile.id);
 
             //user.profileimage = profile.picture.data.url;
         }
@@ -157,7 +164,7 @@ function twitter(req, res) {
             token
           });
         });
-        console.log('profile for twitter ' , profile);
+        //console.log('profile for twitter ' , profile);
       // res.status(200).send();
       });
     });

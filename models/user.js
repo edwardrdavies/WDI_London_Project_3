@@ -5,11 +5,11 @@ const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
-  email: { type: String, unique: true, required: true },
-  profileImage: { type: String},
-  facebookId: { type: String},
-  twitterId: { type: String},
-  instagramId: { type: String},
+  email: { type: String, unique: true },
+  profileImage: { type: String },
+  facebookId: { type: String },
+  twitterId: { type: String },
+  instagramId: { type: String },
   passwordHash: { type: String }
 });
 
