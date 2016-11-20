@@ -70,4 +70,8 @@ function Auth($authProvider) {
   //   clientId: 'Instagram Client ID'
   // });
 
+  $authProvider.github({
+    clientId: '1ce21c481fa0a5dc7af0'
+  });
+
 }
