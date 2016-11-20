@@ -1,0 +1,19 @@
+<div class="hero">
+  <h4 class="registerWith">New Message</h4>
+  <form novalidate ng-submit="message.addMessage()">
+    <div class="row">
+      <label>Line</label>
+      <input class="u-full-width" type="hidden" ng-model="messageNew.message.tflId">
+    </div>
+    <div class="row">
+      <label>Username</label>
+      <input class="u-full-width" type="hidden" ng-model="messageNew.message.username">
+    </div>
+    <div class="row">
+      <label>Message</label>
+      <input class="u-full-width" type="text" placeholder=`Enter your message about {{ line.tflId }} line here` ng-model="messageNew.message.messageText">
+    </div>
+
+    <button class="loginBtn">Submit</button>
+  </form>
+</div>
