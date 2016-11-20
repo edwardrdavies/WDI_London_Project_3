@@ -1,23 +1,31 @@
 <section>
-  <div class="container">
-    <div class="linesHeader">
-      <p class="headingTitle">Twitter4London</p>
-      <img class="settings" src="../images/settings.png" alt="" />
-    </div>
-    <div class="toggle">
-      <a class="buttonAll" ui-sref="linesIndex" ui-sref-active="active">All</a>
-      <a class="buttonFrequent" ui-sref="linesFavIndex" ui-sref-active="active">Frequent</a>
-    </div>
-  <div>
-    <ul>
-      <li ng-repeat="line in linesIndex.all">
-        <a class="linesLink" ui-sref="linesShow({ tflId: line.tflId })">
-          <strong>{{ line.name }} Line:</strong> {{ line.status }} {{ line.severity }}
-        </a>
-      </li>
-    </ul>
+  <div class="linesHeader">
+    <p class="headingTitle">Twitter4London</p>
+    <img class="settings" src="../images/settings.png" alt="" />
   </div>
-  </div>
+  <!-- <div class="container"> -->
+    <div class="row">
+      <div class="four columns firstColumn">
+        <div class="toggle">
+          <a class="buttonAll" ui-sref="linesIndex" ui-sref-active="active">All</a>
+          <a class="buttonFrequent" ui-sref="linesFavIndex" ui-sref-active="active">Frequent</a>
+        </div>
+        <div>
+          <ul>
+
+            <li ng-repeat="line in linesIndex.all">
+              <img src="../images/underground-logo.png" alt="" />
+              <a class="linesLink" ui-sref="linesShow({ tflId: line.tflId })">
+                <strong>{{ line.name }} Line:</strong> {{ line.status }} {{ line.severity }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="four columns"></div>
+    </div>
+
+  <!-- </div> -->
   </ul>
   <button ui-sref="usersEdit" ui-sref-active="active">Settings</button>
 

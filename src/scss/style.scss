@@ -1,6 +1,31 @@
+@media (min-width: 320px) {
 .container {
   padding: 0;
 }
+
+.linesHeader {
+  background-color: #21314d;
+  height: 45px;
+  margin-bottom: 1px;
+}
+
+.headingTitle {
+  color: white;
+  display: inline;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 22px;
+}
+
+.settings {
+  height: 30px;
+  display: block;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  float: right;
+  padding-right: 5px;
+}
+
 
 .hero {
   height: 100vh;
@@ -11,15 +36,6 @@
   text-align: center;
 }
 
-// .title {
-//   float: left;
-//   color: white;
-//   padding-left: 10px;
-//   text-transform: uppercase;
-//   font-weight: bold;
-//   font-size: 20px;
-//   padding-top: 10px;
-// }
 
 h4.loginWith, h4.registerWith {
   font-size: 26px;
@@ -75,7 +91,16 @@ label {
   padding-right: 9px;
 }
 
-@media (max-width: 400px) {
+.twitterLogo {
+  height: 10px;
+}
+
+h2.linesShow {
+  margin-bottom: 1px;
+  padding-left: 5px; 
+}
+
+
   input.u-full-width {
     width: 300px;
     height: 35px;
@@ -103,14 +128,15 @@ label {
   }
 }
 
-@media (max-width: 400px) {
 .allLines {
   border: 3px solid black;
 }
 
 ul {
-  list-style-image: url('../images/underground-logo.png');
+  // list-style-image: url('../images/underground-logo.png');
   padding-top: 10px;
+  padding-left: 10px;
+  list-style: none;
 }
 
 a:link {
@@ -127,20 +153,6 @@ ul li:after {
     background: #e1e8ed;
 }
 
-.settings {
-  height: 30px;
-  display: block;
-  padding-bottom: 15px;
-  padding-top: 5px;
-  float: right;
-  padding-right: 5px;
-}
-
-.headingTitle {
-  color: white;
-  display: inline;
-  padding-left: 10px;
-}
 
 .buttonAll,  {
   width: 200px;
@@ -164,16 +176,7 @@ ul li:after {
   border: none;
 }
 
-.toggle{
-  padding-bottom: 20px;
+.toggle {
   background-color: #e1e8ed;
   padding-top: 15px;
-}
-
-.linesHeader {
-  background-color: #21314d;
-  height: 45px;
-  margin-bottom: 1px;
-}
-
 }
