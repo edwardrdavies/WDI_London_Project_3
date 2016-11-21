@@ -11,7 +11,7 @@ const linesController = require('../controllers/lines');
 router
   .post('/login', authController.login)
   .post('/register', authController.register)
-  .post('/confirm/:ConfirmationCode', authController.confirm)
+  .post('/confirm/:confirmationCode', authController.confirm)
   .post('/auth/facebook', oauthController.facebook)
   .post('/auth/twitter', oauthController.twitter)
   .post('/auth/instagram', oauthController.instagram)

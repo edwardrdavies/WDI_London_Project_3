@@ -22,7 +22,7 @@ function register(req, res){
 }
 
 function confirm(req, res) {
-  User.findOne( { confirmationCode: req.params.confirmationCode }, (err, user) => {
+  User.findOne({ confirmationCode: req.params.confirmationCode }, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     if (!user) return res.status(401).json({ message: 'Unauthorised.' });
 
@@ -30,7 +30,7 @@ function confirm(req, res) {
 
     user.save((err) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      res.status(204).$state.go('/linesIndex');
+      res.status(204).send();
     });
 
   });
