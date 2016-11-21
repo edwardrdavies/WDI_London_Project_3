@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   githubId: { type: String },
   instagramId: { type: String },
   passwordHash: { type: String },
-  lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
+  lineFavs: [ String ]
 });
 
 function setPassword(value){

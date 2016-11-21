@@ -1,7 +1,7 @@
 <section>
   <div class="linesHeader">
     <p class="headingTitle">Twitter4London</p>
-    <img class="settings" src="../images/settings.png" alt="" />
+    <img ui-sref="usersEdit" ui-sref-active="active" class="settings" src="../images/settings.png" alt="settings" />
   </div>
   <!-- <div class="container"> -->
     <div class="row">
@@ -12,7 +12,6 @@
         </div>
         <div>
           <ul>
-
             <li ng-repeat="line in linesIndex.all">
               <img src="../images/underground-logo.png" alt="" />
               <a class="linesLink" ui-sref="linesShow({ tflId: line.tflId })">
@@ -27,6 +26,6 @@
 
   <!-- </div> -->
   </ul>
-  <button ui-sref="usersEdit" ui-sref-active="active">Settings</button>
+  <!-- <button ui-sref="usersEdit" ui-sref-active="active">Settings</button> -->
 
 </section>

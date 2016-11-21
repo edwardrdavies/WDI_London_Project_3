@@ -19,6 +19,12 @@ function status(req, res) {
           severity: statusObject.lineStatuses[0].statusSeverity
         };
       });
+      if(req.query.lines) {
+        const linesToKeep = req.query.lines.split(',');
+        data = data.filter((line) => {
+          return linesToKeep.includes(line.tflId);
+        });
+      }
       res.json(data);
     })
     .catch((err) => {
