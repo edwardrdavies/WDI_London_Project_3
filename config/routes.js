@@ -6,6 +6,7 @@ const oauthController = require('../controllers/oauth');
 //const secureRoute = require('../lib/secureRoute');
 const usersController = require('../controllers/users');
 const linesController = require('../controllers/lines');
+const messagesController = require('../controllers/messages');
 
 router
   .post('/login', authController.login)
@@ -34,5 +35,8 @@ router.route('/lines/:id')
   .get(linesController.show)
   .put(linesController.update);
 
+router.route('/messages')
+  .get(messagesController.index)
+  .post(messagesController.create);
 
 module.exports = router;
