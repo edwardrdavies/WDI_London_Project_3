@@ -61,14 +61,13 @@ function Auth($authProvider) {
   $authProvider.facebook({
     clientId: '360279380977935'
   });
-  //
-  // $authProvider.github({
-  //   clientId: '1ce21c481fa0a5dc7af0'
-  // });
+
+  $authProvider.twitter({
+    consumer_key: 'rG5fJ6jrp0NECDqpceKMo5UuZ'
+  });
   //
   // $authProvider.instagram({
   //   clientId: 'Instagram Client ID'
   // });
 
-  //No additional setup required for Twitter
 }

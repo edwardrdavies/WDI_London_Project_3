@@ -3,9 +3,13 @@ const authController = require('../controllers/auth');
 const twitterController = require('../controllers/twitterController');
 const tflController = require('../controllers/tfl');
 const oauthController = require('../controllers/oauth');
+<<<<<<< HEAD
+//const secureRoute = require('../lib/secureRoute');
+=======
 // const secureRoute = require('../lib/secureRoute');
 const usersController = require('../controllers/users');
 const linesController = require('../controllers/lines');
+>>>>>>> development
 
 router
   .post('/login', authController.login)
@@ -13,7 +17,8 @@ router
   .post('/confirm/:ConfirmationCode', authController.confirm)
   .post('/auth/facebook', oauthController.facebook)
   .post('/auth/twitter', oauthController.twitter)
-  // .post('/auth/instagram', oauthController.instagram)
+  .post('/auth/instagram', oauthController.instagram)
+  
   .get('/status', tflController.status);
 
   //TWITTER ROUTES

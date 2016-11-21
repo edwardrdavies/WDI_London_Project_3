@@ -44,8 +44,8 @@ function LoginController($auth, $state) {
 
   function authenticate (provider) {
     $auth.authenticate(provider)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        $state.go('linesIndex');
       });
   }
 

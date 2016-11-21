@@ -6,6 +6,14 @@ const uuid = require('uuid');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
+<<<<<<< HEAD
+  email: { type: String, unique: true },
+  profileImage: { type: String },
+  facebookId: { type: String },
+  twitterId: { type: String },
+  instagramId: { type: String },
+  passwordHash: { type: String }
+=======
   email: { type: String, unique: true, required: true },
   profileImage: { type: String},
   locked: { type: Boolean, default: true },
@@ -13,6 +21,7 @@ const userSchema = new mongoose.Schema({
   facebookId: { type: String},
   passwordHash: { type: String },
   lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
+>>>>>>> development
 });
 
 function setPassword(value){
