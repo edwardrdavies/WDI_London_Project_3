@@ -1,0 +1,25 @@
+<div class="hero">
+  <h4 class="registerWith">New Message</h4>
+
+  <button ui-sref="linesIndex">Go Back</button>
+  <button ui-sref="messagesIndex">See Messages</button>
+
+  {{message.newMessage}}
+
+  <form novalidate ng-submit="message.addMessage()">
+    <div class="row">
+      <label>Line</label>
+      <input class="u-full-width" type="text" ng-model="message.newMessage.name">
+    </div>
+    <!-- <div class="row">
+      <label>User</label>
+      <input class="u-full-width" type="hidden" ng-model="message.user">
+    </div> -->
+    <div class="row">
+      <label>Message</label>
+      <input class="u-full-width" type="text" placeholder="Enter your message here" ng-model="message.newMessage.messageText">
+    </div>
+
+    <button class="loginBtn">Submit</button>
+  </form>
+</div>

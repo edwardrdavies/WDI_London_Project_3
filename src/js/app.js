@@ -50,6 +50,11 @@ function Router($stateProvider,   $urlRouterProvider) {
     url: '/confirm/:confirmationCode',
     templateUrl: '/templates/confirm.html',
     controller: 'ConfirmController as confirm'
+  })
+  .state('messagesNew', {
+    url: '/messages/new',
+    templateUrl: '/templates/messagesNew.html',
+    controller: 'MessagesNewController as message'
   });
 
   $urlRouterProvider.otherwise('/login');
