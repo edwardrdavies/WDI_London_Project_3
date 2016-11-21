@@ -41,6 +41,11 @@ function Router($stateProvider,   $urlRouterProvider) {
     templateUrl: '/templates/usersEdit.html',
     controller: 'UsersEditController as edit'
   })
+  .state('userLines', {
+    url: '/user/:id/lines',
+    templateUrl: '/templates/userLines.html',
+    controller: 'UserLinesController as userLines'
+  })
   .state('confirm', {
     url: '/confirm/:confirmationCode',
     templateUrl: '/templates/confirm.html',

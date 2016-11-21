@@ -4,9 +4,9 @@ angular
 
 TFL.$inject = ['$http'];
 function TFL($http) {
-  function getStatuses() {
+  function getStatuses(lines) {
     return $http
-      .get('/status')
+      .get('/status', { lines: lines })
       .then((res) => {
         return res.data;
       });

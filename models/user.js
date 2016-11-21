@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   locked: { type: Boolean, default: true },
   confirmationCode: { type: String, default: uuid.v1 },
   passwordHash: { type: String },
-  lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
+  lineFavs: [ String ]
 });
 
 function setPassword(value){
