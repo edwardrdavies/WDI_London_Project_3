@@ -97,7 +97,7 @@ label {
 
 h2.linesShow {
   margin-bottom: 1px;
-  padding-left: 5px; 
+  padding-left: 5px;
 }
 
 
@@ -126,7 +126,7 @@ h2.linesShow {
     text-transform: uppercase;
     font-weight: bold;
   }
-}
+
 
 .allLines {
   border: 3px solid black;
@@ -157,10 +157,10 @@ ul li:after {
 .buttonAll,  {
   width: 200px;
   height: 45px;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   padding: 5px 50px;
-  margin-left: 40px;
+  margin-left: 60px;
   background-color: #21314d;
   border: none;
 }
@@ -168,7 +168,7 @@ ul li:after {
 .buttonFrequent {
   width: 200px;
   height: 45px;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   padding: 5px 30px;
   margin-left: 10px;
@@ -176,7 +176,10 @@ ul li:after {
   border: none;
 }
 
+}
+
 .toggle {
   background-color: #e1e8ed;
-  padding-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
