@@ -52,7 +52,7 @@ function Router($stateProvider,   $urlRouterProvider) {
     controller: 'ConfirmController as confirm'
   });
 
-  $urlRouterProvider.otherwise('/lines');
+  $urlRouterProvider.otherwise('/login');
 }
 
 Auth.$inject = ['$authProvider'];
