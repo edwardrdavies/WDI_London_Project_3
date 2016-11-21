@@ -3,20 +3,20 @@ const authController = require('../controllers/auth');
 const twitterController = require('../controllers/twitterController');
 const tflController = require('../controllers/tfl');
 const oauthController = require('../controllers/oauth');
-//const secureRoute = require('../lib/secureRoute');
+const secureRoute = require('../lib/secureRoute');
 const usersController = require('../controllers/users');
-const linesController = require('../controllers/lines');
 const messagesController = require('../controllers/messages');
+
 
 router
   .post('/login', authController.login)
   .post('/register', authController.register)
-  .post('/confirm/:ConfirmationCode', authController.confirm)
+  .post('/confirm/:confirmationCode', authController.confirm)
   .post('/auth/facebook', oauthController.facebook)
   .post('/auth/twitter', oauthController.twitter)
   .post('/auth/instagram', oauthController.instagram)
-
-  .get('/status', tflController.status);
+  .post('/auth/github', oauthController.github)
+  .get('/status', secureRoute, tflController.status);
 
   //TWITTER ROUTES
 router.route('/tweets')
@@ -24,16 +24,10 @@ router.route('/tweets')
 
 //userRoutes
 router.route('/users')
-  .get(usersController.index);
+  .get(secureRoute, usersController.index);
 router.route('/users/:id')
-  .get(usersController.show)
-  .put(usersController.update);
-
-router.route('/lines')
-  .get(linesController.index);
-router.route('/lines/:id')
-  .get(linesController.show)
-  .put(linesController.update);
+  .get(secureRoute, usersController.show)
+  .put(secureRoute, usersController.update);
 
 router.route('/messages')
   .get(messagesController.index)

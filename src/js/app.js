@@ -52,7 +52,7 @@ function Router($stateProvider,   $urlRouterProvider) {
     controller: 'ConfirmController as confirm'
   });
 
-  $urlRouterProvider.otherwise('/lines');
+  $urlRouterProvider.otherwise('/login');
 }
 
 Auth.$inject = ['$authProvider'];
@@ -74,5 +74,9 @@ function Auth($authProvider) {
   // $authProvider.instagram({
   //   clientId: 'Instagram Client ID'
   // });
+
+  $authProvider.github({
+    clientId: '1ce21c481fa0a5dc7af0'
+  });
 
 }

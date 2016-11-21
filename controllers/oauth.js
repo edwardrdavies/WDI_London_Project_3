@@ -224,9 +224,63 @@ function instagram(req, res) {
 
 }
 
+function github(req, res) {
+  // request an access token
+  request.get({
+    url: 'https://github.com/login/oauth/access_token',
+    qs: {
+      code: req.body.code,
+      client_id: process.env.GITHUB_APP_ID,
+      client_secret: process.env.GITHUB_APP_SECRET,
+      redirect_uri: req.body.redirectUri
+    },
+    json: true
+  }).then((accessToken) => {
+    // request the user's profile, using the access token
+    return request.get({
+      url: 'https://api.github.com/user?access_token',
+      qs: accessToken,
+      headers: {
+        'User-Agent': 'Request-Promise'
+      },
+      json: true
+    });
+
+  }).then((profile) => {
+    console.log(profile);
+    // find or create a user in our database
+    User.findOne({ email: profile.email }, (err, user) => {
+      if(err) return res.status(500).json({ error: err });
+      if(!user) {
+        user = new User({
+          githubId: profile.id,
+          profileImage: profile.avatar_url,
+          email: profile.email,
+          username: profile.login
+        });
+      } else {
+        user.githubId = profile.id;
+        user.profileImage = profile.avatar_url;
+      }
+      // save the user and send out a JWT
+      user.save((err, user) => {
+        if(err) return res.status(400).json({ error: err });
+
+        const payload = { _id: user._id, username: user.username };
+        const token = jwt.sign(payload, secret, { expiresIn: '24h' });
+        res.status(200).json({
+          user,
+          token
+        });
+      });
+    });
+  });
+}
+
 
 module.exports = {
   facebook,
   twitter,
-  instagram
+  instagram,
+  github
 };
