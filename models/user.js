@@ -12,6 +12,8 @@ const userSchema = new mongoose.Schema({
   confirmationCode: { type: String, default: uuid.v1 },
   facebookId: { type: String},
   twitterId: { type: String },
+  githubId: { type: String },
+  instagramId: { type: String },
   passwordHash: { type: String },
   lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
 });

@@ -5,11 +5,8 @@ const tflController = require('../controllers/tfl');
 const oauthController = require('../controllers/oauth');
 
 //const secureRoute = require('../lib/secureRoute');
-
-// const secureRoute = require('../lib/secureRoute');
 const usersController = require('../controllers/users');
 const linesController = require('../controllers/lines');
-
 
 router
   .post('/login', authController.login)
@@ -19,7 +16,6 @@ router
   .post('/auth/twitter', oauthController.twitter)
   .post('/auth/instagram', oauthController.instagram)
   .post('/auth/github', oauthController.github)
-
   .get('/status', tflController.status);
 
   //TWITTER ROUTES
