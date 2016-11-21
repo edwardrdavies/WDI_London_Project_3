@@ -1,8 +1,9 @@
 angular
   .module('twitterForLondon')
   .controller('UsersIndexController', UsersIndexController)
-  .controller('UsersEditController', UsersIndexController)
-  .controller('UsersShowController', UsersShowController);
+  .controller('UsersEditController', UsersEditController)
+  .controller('UsersShowController', UsersShowController)
+  .controller('UserLinesController', UserLinesController);
 
 UsersIndexController.$inject = ['User'];
 function UsersIndexController(User){
@@ -21,12 +22,11 @@ function UsersShowController(User, $state, $auth) {
 
 }
 
-UsersEditController.$inject = ['User', '$state'];
-function UsersEditController(User, $state) {
+UsersEditController.$inject = ['User', '$state', '$auth'];
+function UsersEditController(User, $state, $auth) {
   const usersEdit = this;
 
-
-  usersEdit.user = User.get($state.params);
+  usersEdit.user = User.get({ id: $auth.getPayload()._id });
 
   function update() {
     usersEdit.user.$update(() => {
@@ -34,6 +34,45 @@ function UsersEditController(User, $state) {
     });
   }
 
-  this.update = update;
+  usersEdit.update = update;
 
+}
+
+UserLinesController.$inject = ['User', '$state', 'TFL', '$scope', '$auth'];
+function UserLinesController(User, $state, TFL, $scope, $auth) {
+  const userLines = this;
+  userLines.all = [];
+
+  userLines.user = User.get({ id: $auth.getPayload()._id });
+  userLines.isFav = isFav;
+  userLines.toggle = toggle;
+
+
+  function isFav(line) {
+    return userLines.user.lineFavs.includes(line.tflId);
+  }
+
+  function toggle(line) {
+    if(isFav(line)) {
+      const idx = userLines.user.lineFavs.findIndex((tflId) => {
+        tflId === line.tflId;
+      });
+      userLines.user.lineFavs.splice(idx, 1);
+    } else {
+      userLines.user.lineFavs.push(line.tflId);
+    }
+  }
+
+  function update() {
+    userLines.user.$update(() => {
+      $state.go('linesIndex', $state.params);
+    });
+  }
+
+  userLines.update = update;
+
+  TFL.getStatuses()
+    .then((lines) => {
+      userLines.all = lines;
+    });
 }

@@ -21,12 +21,13 @@
       <label>Password Confirmation</label>
       <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="edit.user.passwordConfirmation">
     </div>
-
     <button class="updateBtn">Update</button>
 
 
+    <button class="frequentLinesBtn" ui-sref="userLines({ id: edit.user._id })">Frequent Lines</button>
+
   </form>
-  <button class="frequentLinesBtn" ui-sref="#">Frequent Lines</button>
+
 
   <a class="logoutBtn" ui-sref="login">Logout</a>
 </div>

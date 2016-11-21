@@ -20,12 +20,15 @@ LinesFavIndexController.$inject = ['TFL', '$auth', 'User'];
 function LinesFavIndexController(TFL, $auth, User) {
   const linesFavIndex = this;
   linesFavIndex.lineFavs = [];
-  linesFavIndex.user = User.get({id: $auth.getPayload()._id});
+  User.get({id: $auth.getPayload()._id}, (user) => {
+    linesFavIndex.user = user;
 
-  TFL.getStatuses()
-    .then((lines) => {
-      linesFavIndex.lineFavs = lines;
-    });
+    TFL.getStatuses(user.lineFavs)
+      .then((lines) => {
+        linesFavIndex.lineFavs = lines;
+      });
+  });
+
 }
 
 LinesShowController.$inject = ['TFL', '$http', '$state'];
@@ -33,11 +36,9 @@ function LinesShowController(TFL, $http, $state) {
   const linesShow = this;
   linesShow.tweets = [];
 
-  TFL.getStatuses()
+  TFL.getStatuses([$state.params.tflId])
     .then((lines) => {
-      linesShow.line = lines.filter((line) => {
-        return line.tflId === $state.params.tflId;
-      })[0];
+      linesShow.line = lines[0];
     });
 
   function getTweets() {

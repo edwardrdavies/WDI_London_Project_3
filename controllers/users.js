@@ -8,13 +8,11 @@ function usersIndex(req, res) {
 }
 
 function usersShow(req, res) {
-  User.findById(req.params.id)
-   .populate('lineFavs')
-   .exec((err, user) => {
-     if(err) return res.status(500).json({ error: err });
-     if(!user) return res.status(404).json({ error: 'Not found' });
-     return res.json(user);
-   });
+  User.findById(req.params.id, (err, user) => {
+    if(err) return res.status(500).json({ error: err });
+    if(!user) return res.status(404).json({ error: 'Not found' });
+    return res.json(user);
+  });
 }
 
 function usersUpdate(req, res) {

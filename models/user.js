@@ -8,13 +8,14 @@ const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true },
   profileImage: { type: String },
-  facebookId: { type: String },
-  twitterId: { type: String },
-  instagramId: { type: String },
   locked: { type: Boolean, default: true },
   confirmationCode: { type: String, default: uuid.v1 },
+  facebookId: { type: String},
+  twitterId: { type: String },
+  githubId: { type: String },
+  instagramId: { type: String },
   passwordHash: { type: String },
-  lineFavs: [{ type: mongoose.Schema.ObjectId, ref: 'Line' }]
+  lineFavs: [ String ]
 });
 
 function setPassword(value){
@@ -52,7 +53,7 @@ userSchema.methods.validatePassword = validatePassword;
 userSchema.set('toJSON', {
   transform: function(doc, json) {
     delete json.passwordHash;
-    delete json.email;
+    delete json.confirmationCode;
     delete json.__v;
     return json;
   }

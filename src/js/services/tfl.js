@@ -4,9 +4,14 @@ angular
 
 TFL.$inject = ['$http'];
 function TFL($http) {
-  function getStatuses() {
+  function getStatuses(lines) {
+    const params = {};
+    if(lines && lines.length > 0) {
+      params.lines = lines.join(',');
+    }
+
     return $http
-      .get('/status')
+      .get('/status', { params })
       .then((res) => {
         return res.data;
       });
