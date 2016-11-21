@@ -24,7 +24,7 @@ router.route('/tweets')
 
 //userRoutes
 router.route('/users')
-  .get(secureRoute, usersController.index);
+  .get(usersController.index);
 router.route('/users/:id')
   .get(secureRoute, usersController.show)
   .put(secureRoute, usersController.update);
