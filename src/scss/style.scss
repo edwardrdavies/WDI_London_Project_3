@@ -37,7 +37,7 @@
 }
 
 
-h4.loginWith, h4.registerWith {
+h4.loginWith, h4.registerWith, h4.editUser {
   font-size: 26px;
   color: white;
   text-align: center;
@@ -45,14 +45,15 @@ h4.loginWith, h4.registerWith {
   padding-top: 80px;
   text-transform: uppercase;
   font-weight: bold;
+  padding-top: 20px; 
 }
 
-input.u-full-width {
-  width: 375px;
-  height: 40px;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
+// input.u-full-width {
+//   width: 375px;
+//   height: 40px;
+//   margin-bottom: 10px;
+//   font-size: 14px;
+// }
 
 .OR {
   font-size: 14px;
@@ -77,6 +78,19 @@ label {
   color: white;
   background-color: #21314d;
   border: none;
+}
+
+.updateBtn, .frequentLinesBtn {
+  margin-top: 30px;
+  width: 250px;
+  height: 45px;
+  font-size: 20px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background-color: #21314d;
+  border: none;
+  display: block;
+  margin-left: 50px;
 }
 
 .registerBtn {

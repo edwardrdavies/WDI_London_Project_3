@@ -1,22 +1,29 @@
-<form novalidate ng-submit="edit.submit()">
-  <div class="row">
-    <label>Username</label>
-    <input class="u-full-width" type="text" placeholder="Username" ng-model="edit.user.username">
+<div class="hero">
+  <div class="linesHeader">
+    <p class="headingTitle">Twitter4London</p>
+    <img class="settings" src="../images/settings.png" alt="" />
   </div>
-  <div class="row">
-    <label>Email</label>
-    <input class="u-full-width" type="email" placeholder="Email" ng-model="edit.user.email">
-  </div>
-  <div class="row">
-    <label>Password</label>
-    <input class="u-full-width" type="password" placeholder="Password" ng-model="edit.user.password">
-  </div>
-  <div class="row">
-    <label>Password Confirmation</label>
-    <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="edit.user.passwordConfirmation">
-  </div>
+  <h4 class="editUser">Edit Account</h4>
+  <form novalidate ng-submit="edit.submit()">
+    <div class="row">
+      <label>Username</label>
+      <input class="u-full-width" type="text" placeholder="Username" ng-model="edit.user.username">
+    </div>
+    <div class="row">
+      <label>Email</label>
+      <input class="u-full-width" type="email" placeholder="Email" ng-model="edit.user.email">
+    </div>
+    <div class="row">
+      <label>Password</label>
+      <input class="u-full-width" type="password" placeholder="Password" ng-model="edit.user.password">
+    </div>
+    <div class="row">
+      <label>Password Confirmation</label>
+      <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="edit.user.passwordConfirmation">
+    </div>
 
-  <button>Update</button>
+    <button class="updateBtn">Update</button>
 
-  <button ui-sref="#">Frequent Lines</button>
-</form>
+    <button class="frequentLinesBtn" ui-sref="#">Frequent Lines</button>
+  </form>
+</div>
