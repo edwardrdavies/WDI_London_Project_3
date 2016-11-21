@@ -34,14 +34,21 @@ body {
 }
 
 .backBtn {
+  height: 30px;
+  display: inline;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  color: white;
+}
+
+
+.backBtn {
   height: 10px;
   padding-top: 5px;
   padding-left: 5px;
   display: inline;
   color: white;
 }
-
-
 
 .hero {
   height: 100vh;
@@ -76,13 +83,10 @@ h4.loginWith, h4.registerWith, h4.editUser {
   color: white;
 }
 
-
 label {
   font-size: 16px;
   padding-bottom: 7px;
   color: white;
-
-
 }
 
 .loginBtn, .updateBtn, .goToAppBtn,  {
@@ -94,11 +98,9 @@ label {
   color: white;
   background-color: #21314d;
   border: none;
-
 }
 
 .frequentLinesBtn {
-
   width: 200px;
   height: 45px;
   font-size: 16px;
@@ -110,25 +112,10 @@ label {
   display: block;
 }
 
-// , .frequentLinesBtn {
-//   margin-top: 30px;
-//   width: 250px;
-//   height: 45px;
-//   font-size: 20px;
-//   border-radius: 0 0 5px 5px;
-//   color: white;
-//   background-color: #21314d;
-//   border: none;
-//   display: block;
-//   margin-left: 50px;
-// }
-
-.registerBtn, .logoutBtn {
+a.registerBtn, a.logoutBtn {
   font-size: 22px;
   text-decoration: none;
-  a {
-    color: white;
-  }
+  color: white; 
 }
 
 .fbImg, .twitterImg, .instagramImg {
