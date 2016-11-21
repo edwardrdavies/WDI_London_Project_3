@@ -22,11 +22,11 @@ function UsersShowController(User, $state, $auth) {
 
 }
 
-UsersEditController.$inject = ['User', '$state'];
-function UsersEditController(User, $state) {
+UsersEditController.$inject = ['User', '$state', '$auth'];
+function UsersEditController(User, $state, $auth) {
   const usersEdit = this;
 
-  usersEdit.user = User.get($state.params);
+  usersEdit.user = User.get({ id: $auth.getPayload()._id });
 
   function update() {
     usersEdit.user.$update(() => {
@@ -38,14 +38,15 @@ function UsersEditController(User, $state) {
 
 }
 
-UserLinesController.$inject = ['User', '$state', 'TFL', '$scope'];
-function UserLinesController(User, $state, TFL, $scope) {
+UserLinesController.$inject = ['User', '$state', 'TFL', '$scope', '$auth'];
+function UserLinesController(User, $state, TFL, $scope, $auth) {
   const userLines = this;
   userLines.all = [];
 
-  userLines.user = User.get($state.params);
+  userLines.user = User.get({ id: $auth.getPayload()._id });
   userLines.isFav = isFav;
   userLines.toggle = toggle;
+
 
   function isFav(line) {
     return userLines.user.lineFavs.includes(line.tflId);

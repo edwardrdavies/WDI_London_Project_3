@@ -1,6 +1,6 @@
 <ul>
   <li ng-repeat="line in userLines.all">
-    <label>{{ line.name }}
+    <label class="lable">{{ line.name }}
       <input type="checkbox" ng-checked="userLines.isFav(line)" ng-click="userLines.toggle(line)">
     </label>
   </li>
