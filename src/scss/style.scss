@@ -1,4 +1,9 @@
 @media (min-width: 320px) {
+
+body {
+  margin: 0;
+}
+
 .container {
   padding: 0;
 }
@@ -7,6 +12,7 @@
   background-color: #21314d;
   height: 45px;
   margin-bottom: 1px;
+  text-align: center;
 }
 
 .headingTitle {
@@ -25,6 +31,14 @@
   padding-top: 5px;
   float: right;
   padding-right: 5px;
+}
+
+.backBtn {
+  height: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
+  display: inline;
+  color: white;
 }
 
 
@@ -71,8 +85,8 @@ label {
 
 }
 
-.loginBtn, .updateBtn, .goToAppBtn {
-  margin-top: 30px;
+.loginBtn, .updateBtn, .goToAppBtn,  {
+  margin-top: 10px;
   width: 200px;
   height: 45px;
   font-size: 20px;
@@ -81,6 +95,19 @@ label {
   background-color: #21314d;
   border: none;
 
+}
+
+.frequentLinesBtn {
+
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background-color: #21314d;
+  border: none;
+  margin:5px auto 0;
+  display: block;
 }
 
 // , .frequentLinesBtn {
@@ -96,10 +123,12 @@ label {
 //   margin-left: 50px;
 // }
 
-.registerBtn {
+.registerBtn, .logoutBtn {
   font-size: 22px;
   text-decoration: none;
-  color: white;
+  a {
+    color: white;
+  }
 }
 
 .fbImg, .twitterImg, .instagramImg {
@@ -181,7 +210,6 @@ ul li:after {
   font-size: 16px;
   color: white;
   padding: 5px 50px;
-  margin-left: 60px;
   background-color: #21314d;
   border: none;
 }
@@ -201,14 +229,22 @@ ul li:after {
 
 .toggle {
   background-color: #e1e8ed;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  a {
+    color: white;
+    // margin: auto 0;
+
+  }
 }
 
 h2.confirmationTitle {
-  font-size: 22px;
-  padding-top: 10px;
+  font-size: 26px;
+  padding-top: 40px;
   color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 
 }
 
@@ -216,4 +252,5 @@ h2.confirmationTitle {
   background-position: center;
   display: block;
   height: 300px;
+  margin: 0 auto;
 }
