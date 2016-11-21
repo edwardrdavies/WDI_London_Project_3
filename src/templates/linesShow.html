@@ -1,19 +1,29 @@
 <section>
-  <div>Profile Info Here</div>
-  <h2>{{ linesShow.line.name }} Line</h2>
-  <ul>
-    <li> {{ linesShow.line.status }} {{ linesShow.line.severity }}</li>
-  </ul>
-  <button ui-sref="linesIndex">Go Back</button>
-  <div>Twitter Logo Here</div>
+  <div class="linesHeader">
+    <p class="headingTitle">Twitter4London</p>
+    <img class="settings" src="../images/settings.png" alt="" />
+  </div>
+  <div class="row">
+    <div class="four columns firstColumn">
+      <div class="toggle">
+        <h2 class="linesShow">{{ linesShow.line.name }} Line</h2>
+        <ul>
+
+          <li>
+            <img class="undergroundLogo" src="../images/underground-logo.png" alt="" />
+            {{ linesShow.line.status }} {{ linesShow.line.severity }}</li>
+        </ul>
+      </div>
+
   <ul>
     <!-- <li>{{ linesShow.all}}</li> -->
     <li class="stream" ng-repeat="tweet in linesShow.tweets">
       <div class="tweet">
         <div class="image">
-          <img ng-src="{{tweet.user.profile_image_url}}"/>
+          <img class="profileImg" ng-src="{{tweet.user.profile_image_url}}"/>
         </div>
         <div class="content">
+          <img class="twitterLogo" src="../images/twitterLogo.png" alt="" />
           <strong>{{tweet.user.name}}</strong>
           <span>&rlm;</span>
           <span>@</span>{{tweet.user.screen_name}}</br>
@@ -27,5 +37,6 @@
     </li>
 
   </ul>
+  <button ui-sref="linesIndex">Go Back</button>
 
 </section>
