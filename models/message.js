@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
-  name: { type: String, required: true }, // line ObjectId
-//  user: { type: mongoose.Schema.ObjectId, ref: 'User' }, // user ObjectId
-  messageText: {type: String, required: true } // Message
+  tflId: { type: String, required: true },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  messageText: {type: String, required: true }
 });
 
 module.exports = mongoose.model('Message', messageSchema);

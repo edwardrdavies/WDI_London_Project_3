@@ -1,10 +1,12 @@
 const Message = require('../models/message');
 
 function messagesIndex(req, res) {
-  Message.find((err, messages) => {
-    if(err)res.status(500).json({errpr: err});
-    res.json(messages);
-  });
+  Message.find(req.query)
+    .populate('user')
+    .exec((err, messages) => {
+      if(err)res.status(500).json({errpr: err});
+      res.json(messages);
+    });
 }
 
 function messagesCreate(req, res) {

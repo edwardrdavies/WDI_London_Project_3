@@ -52,9 +52,14 @@ function Router($stateProvider,   $urlRouterProvider) {
     controller: 'ConfirmController as confirm'
   })
   .state('messagesNew', {
-    url: '/messages/new',
+    url: '/messages/:tflId/new',
     templateUrl: '/templates/messagesNew.html',
     controller: 'MessagesNewController as message'
+  })
+  .state('messagesIndex', {
+    url: '/messages/:tflId',
+    templateUrl: '/templates/messagesIndex.html',
+    controller: 'MessagesIndexController as messagesIndex'
   });
 
   $urlRouterProvider.otherwise('/login');

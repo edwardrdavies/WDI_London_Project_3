@@ -14,8 +14,8 @@
             {{ linesShow.line.status }} {{ linesShow.line.severity }}</li>
         </ul>
         <button ui-sref="linesIndex">Go Back</button>
-        <button ui-sref="messagesIndex">See Messages</button>
-        <button ui-sref="messagesNew">Post Message</button>
+        <button ui-sref="messagesIndex({ tflId: linesShow.line.tflId })">See Messages</button>
+        <button ui-sref="messagesNew({ tflId: linesShow.line.tflId })">Post Message</button>
       </div>
 
   <ul>

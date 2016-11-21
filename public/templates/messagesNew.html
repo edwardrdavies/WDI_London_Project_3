@@ -8,16 +8,8 @@
 
   <form novalidate ng-submit="message.addMessage()">
     <div class="row">
-      <label>Line</label>
-      <input class="u-full-width" type="text" ng-model="message.newMessage.name">
-    </div>
-    <!-- <div class="row">
-      <label>User</label>
-      <input class="u-full-width" type="hidden" ng-model="message.user">
-    </div> -->
-    <div class="row">
       <label>Message</label>
-      <input class="u-full-width" type="text" placeholder="Enter your message here" ng-model="message.newMessage.messageText">
+      <textarea class="u-full-width" type="text" placeholder="Enter your message here" ng-model="message.newMessage.messageText"></textarea>
     </div>
 
     <button class="loginBtn">Submit</button>

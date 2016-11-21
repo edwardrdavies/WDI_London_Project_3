@@ -3,32 +3,38 @@ angular
   .controller('MessagesNewController', MessagesNewController)
   .controller('MessagesIndexController', MessagesIndexController);
 
-MessagesNewController.$inject = ['$http'];
+MessagesNewController.$inject = ['$http', 'Message', '$state'];
 
-function MessagesNewController($http) {
+function MessagesNewController($http, Message, $state) {
   const messages = this;
   messages.all = [];
   messages.addMessage = addMessage;
   messages.newMessage = {};
 
   function addMessage() {
-    $http.post('/messages', messages.newMessage)
-      .then((res) => {
-        messages.all.push(res.data);
+    messages.newMessage.tflId = $state.params.tflId;
+    Message.save(messages.newMessage)
+      .then((data) => {
+        messages.all.push(data);
         messages.newMessage = {};
-        console.log(messages.newMessage);
-        console.log(messages.all);
-      })
-        .catch(() =>{
-          console.log('Something went wrong with addMessage in MessageController');
-        });
+      });
   }
+
 }
 
-MessagesIndexController.$inject = ['Message'];
+MessagesIndexController.$inject = ['Message', '$state'];
+function MessagesIndexController(Message, $state){
+  const messages = this;
+  messages.all = [];
 
-function MessagesIndexController(Message){
-  const MessagesIndex = this;
+  messages.tflId = $state.params.tflId;
 
-  MessagesIndex.all = Message.query();
+  function getMessages() {
+    Message.query($state.params)
+      .then((data) => {
+        messages.all = data;
+      });
+  }
+
+  getMessages();
 }

@@ -31,6 +31,6 @@ router.route('/users/:id')
 
 router.route('/messages')
   .get(messagesController.index)
-  .post(messagesController.create);
+  .post(secureRoute, messagesController.create);
 
 module.exports = router;
