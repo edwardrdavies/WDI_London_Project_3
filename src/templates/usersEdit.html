@@ -1,9 +1,9 @@
 <div class="hero">
   <div class="linesHeader">
     <p class="headingTitle">Twitter4London</p>
-    <img class="settings" src="../images/settings.png" alt="" />
   </div>
   <h4 class="editUser">Edit Account</h4>
+
   <form novalidate ng-submit="edit.submit()">
     <div class="row">
       <label>Username</label>
@@ -22,12 +22,8 @@
       <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="edit.user.passwordConfirmation">
     </div>
     <button class="updateBtn">Update</button>
-
-
     <button class="frequentLinesBtn" ui-sref="userLines({ id: edit.user._id })">Frequent Lines</button>
-
   </form>
-
 
   <a class="logoutBtn" ui-sref="login">Logout</a>
 </div>
