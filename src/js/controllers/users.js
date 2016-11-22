@@ -36,6 +36,12 @@ function UsersEditController(User, $state, $auth) {
 
   usersEdit.update = update;
 
+  function logout() {
+    localStorage.removeItem('token');
+    $state.go('login');
+  }
+  usersEdit.logout = logout;
+
 }
 
 UserLinesController.$inject = ['User', '$state', 'TFL', '$scope', '$auth'];

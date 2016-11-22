@@ -13,6 +13,7 @@ body {
   height: 45px;
   margin-bottom: 1px;
   text-align: center;
+
 }
 
 .headingTitle {
@@ -21,7 +22,6 @@ body {
   padding-left: 10px;
   padding-top: 5px;
   font-size: 22px;
-  text-align: center;
 }
 
 .settings {
@@ -33,21 +33,21 @@ body {
   padding-right: 5px;
 }
 
-.backBtn {
+
+
+button.backBtn {
+  margin-top: 10px;
+  width: 75px;
   height: 30px;
-  display: inline;
-  padding-bottom: 15px;
-  padding-top: 5px;
-  color: white;
-}
+  font-size: 14px;
+  border-radius: 3px;
+  color: #21314d;
+  background-color: white;
+  border: none;
+  text-align: center;
+  padding-left: 12px;
+  position: relative;
 
-
-.backBtn {
-  height: 10px;
-  padding-top: 5px;
-  padding-left: 5px;
-  display: inline;
-  color: white;
 }
 
 .hero {
@@ -114,6 +114,12 @@ label {
   display: block;
 }
 
+a.registerBtn, a.logoutBtn {
+  font-size: 22px;
+  text-decoration: none;
+  color: white;
+}
+
 .fbImg, .twitterImg, .instagramImg, .githubImg {
   height: 60px;
   padding-left: 9px;
@@ -124,9 +130,11 @@ label {
   height: 10px;
 }
 
-h2.linesShow {
+h2.linesShow, .linesStatus, .newMessages {
   margin-bottom: 1px;
-  padding-left: 5px;
+  padding-left: 10px;
+  text-align: left;
+
 }
 
   input.u-full-width {
@@ -134,6 +142,7 @@ h2.linesShow {
     height: 35px;
     margin-bottom: 5px;
     font-size: 14px;
+
   }
   .loginBtn {
     margin-top: 20px;
@@ -239,11 +248,20 @@ ul li:after {
   background-color: #e1e8ed;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 10px;
   text-align: center;
   a {
     color: white;
-    // margin: auto 0;
-
+  }
+  .messagesBtn, .postMessageBtn {
+    width: 165px;
+    height: 45px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: white;
+    background-color: #21314d;
+    border: none;
+    text-align: left;
   }
 }
 
@@ -265,4 +283,23 @@ h2.confirmationTitle {
 
 .label {
   color: black;
+}
+
+.usernamePosts {
+  font-weight: bold;
+}
+
+.messagePosts {
+  display: list-item;
+  list-style-image: url(../images/underground-logo.png);
+}
+
+.box {
+  margin: 15px;
+}
+
+.messageBoard {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 24px;
 }
