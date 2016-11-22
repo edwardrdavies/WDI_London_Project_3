@@ -62,7 +62,17 @@ function Router($stateProvider,   $urlRouterProvider) {
     controller: 'MessagesIndexController as messagesIndex'
   });
 
-  $urlRouterProvider.otherwise('/login');
+  function isLoggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  if (isLoggedIn()) {
+    console.log('I am logged in');
+    $urlRouterProvider.otherwise('/lines');
+  } else {
+    console.log('I am not logged in');
+    $urlRouterProvider.otherwise('/login');
+  }
 }
 
 Auth.$inject = ['$authProvider'];
