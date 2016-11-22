@@ -19,9 +19,11 @@ body {
 .headingTitle {
   color: white;
   display: inline;
-  padding-left: 0;
   padding-top: 5px;
   font-size: 22px;
+  position: absolute;
+  margin-left: -116px;
+  text-align: center;
 }
 
 .settings {
@@ -30,7 +32,7 @@ body {
   padding-bottom: 15px;
   padding-top: 5px;
   float: right;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 
@@ -154,6 +156,7 @@ h2.linesShow, .linesStatus, .newMessages {
     background-color: #21314d;
     border: none;
   }
+
   h4.loginWith, h4.registerWith {
     font-size: 26px;
     color: white;
@@ -174,6 +177,7 @@ ul {
   padding-top: 10px;
   padding-left: 10px;
   list-style: none;
+
 }
 
 a:link {
@@ -189,26 +193,28 @@ ul li:after {
     content: "";
     display: block;
     height: 1px;
-    width: 100%;
+    width: 90%;
     margin: 10px;
     background: #e1e8ed;
 }
 
 
 .buttonAll,  {
-  width: 200px;
+  width: 150px;
   height: 45px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   padding: 5px 50px;
   background-color: #21314d;
   border: none;
+  text-transform: uppercase;
+  padding: 0 30px;
 }
 
 .buttonFrequent {
-  width: 200px;
+  width: 150px;
   height: 45px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   padding: 5px 30px;
   margin-left: 10px;
@@ -227,6 +233,7 @@ ul li:after {
   a {
     color: white;
   }
+
   .messagesBtn, .postMessageBtn {
     width: 165px;
     height: 45px;
@@ -276,4 +283,8 @@ h2.confirmationTitle {
   text-align: center;
   text-decoration: underline;
   font-size: 24px;
+}
+
+img.userImg {
+  height: 50px;
 }
