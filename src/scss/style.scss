@@ -13,6 +13,7 @@ body {
   height: 45px;
   margin-bottom: 1px;
   text-align: center;
+
 }
 
 .headingTitle {
@@ -21,7 +22,6 @@ body {
   padding-left: 10px;
   padding-top: 5px;
   font-size: 22px;
-  text-align: center;
 }
 
 .settings {
@@ -33,21 +33,21 @@ body {
   padding-right: 5px;
 }
 
-.backBtn {
+
+
+button.backBtn {
+  margin-top: 10px;
+  width: 75px;
   height: 30px;
-  display: inline;
-  padding-bottom: 15px;
-  padding-top: 5px;
-  color: white;
-}
+  font-size: 14px;
+  border-radius: 3px;
+  color: #21314d;
+  background-color: white;
+  border: none;
+  text-align: center;
+  padding-left: 12px;
+  position: relative;
 
-
-.backBtn {
-  height: 10px;
-  padding-top: 5px;
-  padding-left: 5px;
-  display: inline;
-  color: white;
 }
 
 .hero {
@@ -115,7 +115,7 @@ label {
 a.registerBtn, a.logoutBtn {
   font-size: 22px;
   text-decoration: none;
-  color: white; 
+  color: white;
 }
 
 .fbImg, .twitterImg, .instagramImg, .githubImg {
@@ -128,17 +128,19 @@ a.registerBtn, a.logoutBtn {
   height: 10px;
 }
 
-h2.linesShow {
+h2.linesShow, .linesStatus, .newMessages {
   margin-bottom: 1px;
-  padding-left: 5px;
-}
+  padding-left: 10px;
+  text-align: left;
 
+}
 
   input.u-full-width {
     width: 300px;
     height: 35px;
     margin-bottom: 5px;
     font-size: 14px;
+    
   }
   .loginBtn {
     margin-top: 20px;
@@ -218,11 +220,20 @@ ul li:after {
   background-color: #e1e8ed;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 10px;
   text-align: center;
   a {
     color: white;
-    // margin: auto 0;
-
+  }
+  .messagesBtn, .postMessageBtn {
+    width: 165px;
+    height: 45px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: white;
+    background-color: #21314d;
+    border: none;
+    text-align: left;
   }
 }
 
