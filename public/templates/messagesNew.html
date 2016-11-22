@@ -4,16 +4,16 @@
     <img ui-sref="usersEdit" ui-sref-active="active" class="settings" src="../images/settings.png" alt="settings" />
   </div>
   <div class="toggle">
-  <h2 class="newMessages">New Message</h2>
+  <!-- <h2 class="newMessages">New Message</h2> -->
 
+ <!-- {{ message.tflId }} -->
 
-  <button class="messagesBtn" ui-sref="messagesIndex">See Messages</button>
+  <button class="messagesBtn" ui-sref="messagesIndex({ tflId: message.tflId })">See Messages</button>
   </div>
-
 
   <form novalidate ng-submit="message.addMessage()">
     <div class="row">
-      <label>Message</label>
+      <p>Post a new message for <strong>{{message.tflId | uppercase }}</strong> users</p>
       <textarea class="u-full-width messageTxt" type="text" placeholder="Enter your message here" ng-model="message.newMessage.messageText"></textarea>
     </div>
 

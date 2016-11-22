@@ -1,7 +1,8 @@
 <section class="box">
-  <button ui-sref="linesIndex">Go Back</button>
+  <button ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Go Back</button>
   <button ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Post Message</button>
   <div class="messageBoard">Message Board</div>
+  <p> {{ messagesIndex.tflId | uppercase }} line messages </p>
   <ul>
     <li class="stream" ng-repeat="message in messagesIndex.all">
       <div class="tweet">

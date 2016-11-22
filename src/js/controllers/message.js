@@ -10,6 +10,7 @@ function MessagesNewController($http, Message, $state) {
   messages.all = [];
   messages.addMessage = addMessage;
   messages.newMessage = {};
+  messages.tflId = $state.params.tflId;
 
   function addMessage() {
     messages.newMessage.tflId = $state.params.tflId;
@@ -17,6 +18,7 @@ function MessagesNewController($http, Message, $state) {
       .then((data) => {
         messages.all.push(data);
         messages.newMessage = {};
+        $state.go('messagesIndex', { tflId: $state.params.tflId });
       });
   }
 
