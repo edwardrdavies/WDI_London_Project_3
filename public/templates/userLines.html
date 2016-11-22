@@ -1,6 +1,17 @@
+<div class="linesHeader">
+  <button class="backBtn u-pull-left" ui-sref="linesIndex">Back</button>
+  <p class="headingTitle">Twitter4London</p>
+  <img class="settings" src="../images/settings.png" alt="" />
+</div>
+<div class="toggle">
+  <h2 class="linesShow">Frequent Lines</h2>
+</div>
 <ul>
+
   <li ng-repeat="line in userLines.all">
-    <label class="lable">{{ line.name }}
+
+    <label class="lable"> <img src="../images/underground-logo.png" alt="" />
+      {{ line.name }}
       <input type="checkbox" ng-checked="userLines.isFav(line)" ng-click="userLines.toggle(line)">
     </label>
   </li>

@@ -1,17 +1,21 @@
-<section class="box">
-  <button ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Go Back</button>
-  <button ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Post Message</button>
-  <div class="messageBoard">Message Board</div>
-  <p> {{ messagesIndex.tflId | uppercase }} line messages </p>
-  <ul>
-    <li class="stream" ng-repeat="message in messagesIndex.all">
-      <div class="tweet">
-        <div class="content">
-          <p class="usernamePosts" ng-bind-html="message.user.username"></p>
-          <p class="messagePosts" ng-bind-html="message.messageText"></p>
-        </div>
+<div class="linesHeader">
+  <button class="backBtn u-pull-left" ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Back</button>  
+  <p class="headingTitle">Twitter4London</p>
+  <img ui-sref="usersEdit" ui-sref-active="active" class="settings" src="../images/settings.png" alt="settings" />
+</div>
+<div class="toggle">
+  <h2 class="newMessages">Message Board</h2>
+  <button class="messagesBtn" ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Post Message</button>
+</div>
+<p> {{ messagesIndex.tflId | uppercase }} line messages </p>
+<ul>
+  <li class="stream" ng-repeat="message in messagesIndex.all">
+    <div class="tweet">
+      <div class="content">
+        <img class="userImg" src="../images/user.png" alt="" />
+        <p class="usernamePosts" ng-bind-html="message.user.username"></p>
+        <p class="messagePosts" ng-bind-html="message.messageText"></p>
       </div>
-    </li>
-
-  </ul>
-</section>
+    </div>
+  </li>
+</ul>
