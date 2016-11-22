@@ -10,7 +10,7 @@
 
   <li ng-repeat="line in userLines.all">
 
-    <label class="lable"> <img src="../images/underground-logo.png" alt="" />
+    <label class="linesBlack"> <img src="../images/underground-logo.png" alt="" />
       {{ line.name }}
       <input type="checkbox" ng-checked="userLines.isFav(line)" ng-click="userLines.toggle(line)">
     </label>

@@ -122,6 +122,7 @@ a.registerBtn, a.logoutBtn {
   font-size: 22px;
   text-decoration: none;
   color: white;
+  border: none;
 }
 
 .fbImg, .twitterImg, .instagramImg, .githubImg {
@@ -137,7 +138,7 @@ a.registerBtn, a.logoutBtn {
 h2.linesShow, .linesStatus, .newMessages {
   margin-bottom: 1px;
   padding-left: 10px;
-  text-align: left;
+  text-align: center;
 
 }
 
@@ -210,10 +211,12 @@ a.logoutBtn {
   text-transform: uppercase;
   text-decoration: none;
   color: white;
+  border: none;
 }
 
 a.logoutBtn:hover {
     color: #ff8080;
+    border: none;
 }
 
 ul li:after {
@@ -289,7 +292,7 @@ h2.confirmationTitle {
   margin: 0 auto;
 }
 
-.label {
+.linesBlack {
   color: black;
 }
 
@@ -303,7 +306,7 @@ h2.confirmationTitle {
 }
 
 .box {
-  margin: 15px;
+  margin-left: 15px;
 }
 
 .messageBoard {
