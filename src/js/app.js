@@ -67,10 +67,8 @@ function Router($stateProvider,   $urlRouterProvider) {
   }
 
   if (isLoggedIn()) {
-    console.log('I am logged in');
     $urlRouterProvider.otherwise('/lines');
   } else {
-    console.log('I am not logged in');
     $urlRouterProvider.otherwise('/login');
   }
 }
