@@ -61,7 +61,7 @@ userSchema.set('toJSON', {
 
 function preValidate(next) {
   if (this.isNew) {
-    if (!this._password && !this.facebookId && !this.twitterId && !this.instagramId) {
+    if (!this._password && !this.facebookId && !this.twitterId && !this.instagramId && !this.githubId) {
       this.invalidate('password', 'A password is required.');
     }
   }
