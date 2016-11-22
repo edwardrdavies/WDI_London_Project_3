@@ -20,17 +20,17 @@ router
 
   //TWITTER ROUTES
 router.route('/tweets')
-  .get(twitterController.index);
+  .get(secureRoute, twitterController.index);
 
 //userRoutes
 router.route('/users')
-  .get(usersController.index);
+  .get(secureRoute, usersController.index);
 router.route('/users/:id')
   .get(secureRoute, usersController.show)
   .put(secureRoute, usersController.update);
 
 router.route('/messages')
-  .get(messagesController.index)
+  .get(secureRoute, messagesController.index)
   .post(secureRoute, messagesController.create);
 
 module.exports = router;
