@@ -1,22 +1,20 @@
-<section>
+
   <div class="linesHeader">
-    <img class="backBtn" src="../images/backBtn.png" alt="" />
+    <button class="backBtn" ui-sref="linesIndex">Back</button>
     <p class="headingTitle">Twitter4London</p>
     <img class="settings" src="../images/settings.png" alt="" />
   </div>
-  <div class="row">
-    <div class="four columns firstColumn">
       <div class="toggle">
         <h2 class="linesShow">{{ linesShow.line.name }} Line</h2>
         <ul>
 
-          <li>
+          <li class="linesStatus">
             <img class="undergroundLogo" src="../images/underground-logo.png" alt="" />
             {{ linesShow.line.status }} {{ linesShow.line.severity }}</li>
         </ul>
-        <button ui-sref="linesIndex">Go Back</button>
-        <button ui-sref="messagesIndex({ tflId: linesShow.line.tflId })">See Messages</button>
-        <button ui-sref="messagesNew({ tflId: linesShow.line.tflId })">Post Message</button>
+
+        <button class="messagesBtn" ui-sref="messagesIndex({ tflId: linesShow.line.tflId })">See Messages</button>
+        <button class="postMessageBtn" ui-sref="messagesNew({ tflId: linesShow.line.tflId })">Post Message</button>
       </div>
 
   <ul>
@@ -41,5 +39,3 @@
     </li>
 
   </ul>
-
-</section>
