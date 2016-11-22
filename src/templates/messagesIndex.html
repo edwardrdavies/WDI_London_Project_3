@@ -1,13 +1,13 @@
-<section>
+<section class="box">
   <button ui-sref="linesIndex">Go Back</button>
   <button ui-sref="messagesNew({ tflId: messagesIndex.tflId })">Post Message</button>
-  <div>Messages</div>
+  <div class="messageBoard">Message Board</div>
   <ul>
     <li class="stream" ng-repeat="message in messagesIndex.all">
       <div class="tweet">
         <div class="content">
-          <p ng-bind-html="message.user.username"></p>
-          <p ng-bind-html="message.messageText"></p>
+          <p class="usernamePosts" ng-bind-html="message.user.username"></p>
+          <p class="messagePosts" ng-bind-html="message.messageText"></p>
         </div>
       </div>
     </li>
