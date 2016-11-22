@@ -83,7 +83,9 @@ h4.loginWith, h4.registerWith, h4.editUser {
 // }
 
 .OR {
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
   color: white;
 }
 
@@ -180,13 +182,38 @@ ul {
 
 }
 
-a:link {
+a {
   color: black;
   text-decoration: none;
 }
+
 a:visited {
   color: black;
   text-decoration: none;
+}
+
+a.registerBtn {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+a.registerBtn:hover {
+    color: #8080ff;
+}
+
+a.logoutBtn {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+a.logoutBtn:hover {
+    color: #ff8080;
 }
 
 ul li:after {
@@ -262,7 +289,7 @@ h2.confirmationTitle {
   margin: 0 auto;
 }
 
-.lable {
+.label {
   color: black;
 }
 
