@@ -256,3 +256,22 @@ h2.confirmationTitle {
 .lable {
   color: black;
 }
+
+.usernamePosts {
+  font-weight: bold;
+}
+
+.messagePosts {
+  display: list-item;
+  list-style-image: url(../images/underground-logo.png);
+}
+
+.box {
+  margin: 15px;
+}
+
+.messageBoard {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 24px;
+}
