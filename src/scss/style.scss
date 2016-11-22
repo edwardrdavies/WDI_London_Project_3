@@ -19,7 +19,7 @@ body {
 .headingTitle {
   color: white;
   display: inline;
-  padding-left: 10px;
+  padding-left: 0;
   padding-top: 5px;
   font-size: 22px;
 }
@@ -36,7 +36,9 @@ body {
 
 
 button.backBtn {
-  margin-top: 10px;
+  line-height: normal;
+  margin-left: 10px;
+  margin-top: 8px;
   width: 75px;
   height: 30px;
   font-size: 14px;
@@ -140,7 +142,7 @@ h2.linesShow, .linesStatus, .newMessages {
     height: 35px;
     margin-bottom: 5px;
     font-size: 14px;
-    
+
   }
   .loginBtn {
     margin-top: 20px;
