@@ -5,8 +5,8 @@ angular
   .controller('LinesShowController', LinesShowController);
 
 
-LinesIndexController.$inject = ['TFL'];
-function LinesIndexController(TFL) {
+LinesIndexController.$inject = ['TFL', '$state'];
+function LinesIndexController(TFL, $state) {
   const linesIndex = this;
   linesIndex.all = [];
 
@@ -14,6 +14,12 @@ function LinesIndexController(TFL) {
     .then((lines) => {
       linesIndex.all = lines;
     });
+
+  function logout() {
+    localStorage.removeItem('token');
+    $state.go('login');
+  }
+  linesIndex.logout = logout;
 }
 
 LinesFavIndexController.$inject = ['TFL', '$auth', 'User'];
