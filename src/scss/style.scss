@@ -37,7 +37,7 @@ body {
 
 
 
-button.backBtn {
+button.backBtn, {
   line-height: normal;
   margin-left: 10px;
   margin-top: 8px;
@@ -50,6 +50,23 @@ button.backBtn {
   border: none;
   text-align: center;
   padding-left: 12px;
+  position: relative;
+
+}
+
+button.logoutBtn {
+  line-height: normal;
+  margin-left: 10px;
+  margin-top: 8px;
+  width: 75px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 3px;
+  color: #21314d;
+  background-color: white;
+  border: none;
+  text-align: center;
+  padding-left: 6px;
   position: relative;
 
 }
